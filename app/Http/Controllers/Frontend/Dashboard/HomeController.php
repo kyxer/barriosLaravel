@@ -28,10 +28,10 @@ class HomeController extends Controller
                 $data['register'] = 1;
             }
 
-            return view('frontend\dashboard\homeAuth',$data);
+            return view('frontend.dashboard.homeAuth',$data);
         }
         else{
-            return view('frontend\dashboard\home');
+            return view('frontend.dashboard.home');
         }
 
     }
@@ -43,7 +43,7 @@ class HomeController extends Controller
         if(!$barrio){
             return view('errors.404');
         }
-        return view('frontend\dashboard\barrio',['barrio'=>$barrio]);
+        return view('frontend.dashboard.barrio',['barrio'=>$barrio]);
 
 
     }
