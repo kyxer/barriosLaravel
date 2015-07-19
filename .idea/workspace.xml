@@ -2,59 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80486b6a-7bc6-4307-b6fd-435106596cea" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\.htaccess" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\css\bootstrap-paper.min.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\css\bootstrap-theme.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\css\bootstrap-theme.css.map" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\css\bootstrap-theme.min.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\css\bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\css\bootstrap.css.map" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\css\bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\css\ionicons.min.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\css\styles.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\fonts\glyphicons-halflings-regular.eot" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\fonts\glyphicons-halflings-regular.svg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\fonts\glyphicons-halflings-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\fonts\glyphicons-halflings-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\fonts\glyphicons-halflings-regular.woff2" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\fonts\ionicons.eot" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\fonts\ionicons.svg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\fonts\ionicons.ttf" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\fonts\ionicons.woff" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av10_thumb.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av1_thumb.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av2_thumb.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av3_thumb.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av4_thumb.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av5_thumb.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av6_thumb.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av7_thumb.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av8_thumb.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\images\av9_thumb.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\js\bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\js\bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\js\bootstrap.validator.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\js\jquery-1.11.3.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\js\jquery.fileupload.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\js\jquery.iframe-transport.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\js\jquery.ui.widget.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\assets\js\main.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\index.php" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\barrioosLaravel\public\robots.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.env.1and1" afterPath="$PROJECT_DIR$/.env.1and1" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Helpers/MyImage.php" afterPath="$PROJECT_DIR$/app/Helpers/MyImage.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="barrioosLaravel.iws" />
@@ -77,6 +26,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="26" column="55" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -87,11 +46,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyImage.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MyImage.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Helpers/MyImage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2820513">
+            <state vertical-scroll-proportion="-7.1923075">
               <caret line="74" column="52" selection-start-line="74" selection-start-column="52" selection-end-line="74" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".env.1and1" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.env.1and1">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -108,16 +87,16 @@
         <option value="$PROJECT_DIR$/public/.htaccess" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Frontend/Dashboard/HomeController.php" />
         <option value="$PROJECT_DIR$/config/services.php" />
-        <option value="$PROJECT_DIR$/.env.1and1" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/public/index.php" />
         <option value="$PROJECT_DIR$/bootstrap/app.php" />
         <option value="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/app/Helpers/MyImage.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/.env.1and1" />
       </list>
     </option>
   </component>
@@ -270,11 +249,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1618" height="870" extended-state="7" />
-    <editor active="false" />
+    <frame x="-9" y="-9" width="1618" height="870" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25354838" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25354838" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -332,6 +311,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="64.73077">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -339,6 +319,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -346,6 +327,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.8846154">
           <caret line="19" column="54" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -353,6 +335,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -375,6 +358,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.153846">
           <caret line="45" column="40" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -519,13 +503,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env.1and1">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.616836">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/services.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.78280544">
@@ -537,14 +514,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07762557">
-          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -564,18 +533,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="55" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
           <folding />
         </state>
       </provider>
@@ -590,8 +559,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Helpers/MyImage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2820513">
+        <state vertical-scroll-proportion="-7.1923075">
           <caret line="74" column="52" selection-start-line="74" selection-start-column="52" selection-end-line="74" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env.1and1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
