@@ -68,7 +68,7 @@ class MyImage
     protected static function moveAvatars($source_image){
 
         $img = Image::make($source_image);
-        $avatar['avatar_standar'] = MyImage::tempnamSfx(public_path('/assets/uploads'), 'jpg');
+        $avatar['avatar_standar'] = MyImage::tempnamSfx(base_path('/assets/uploads'), 'jpg');
         $img->save($avatar['avatar_standar'], 80);
         $avatar['avatar_thumbnail'] = MyImage::nameThumb($avatar['avatar_standar']);
         $img = Image::make(MyImage::nameThumb($source_image));
