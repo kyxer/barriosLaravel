@@ -44,7 +44,7 @@
             <div class="form-group">
                 <label for="email" class="col-lg-3 control-label">Correo</label>
                 <div class="col-lg-9">
-                    <input type="email" id="email" value="@if(Request::old('email')){{ Request::old('email')  }}@else{{ Auth::user()->email  }}@endif" class="form-control" name="email" placeholder="Correo" required>
+                    <input type="email" id="email" value="@if(Request::old('email')){{ Request::old('email')  }}@else{{ Auth::user()->email  }}@endif" class="form-control" name="email" data-error="El correo de seguir esta forma ejemplo.correo@dominio.com" pattern="^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$"  placeholder="Correo" required>
                     <div class="help-block with-errors"></div>
                 </div>
             </div>

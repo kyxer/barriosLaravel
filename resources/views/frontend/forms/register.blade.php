@@ -8,7 +8,7 @@
         </div>
 
         <div class="form-group has-feedback">
-            <input class="form-control input-lg" data-pattern-error="Correo invalido" type="email" id="email" name="email" maxlength="50" placeholder="Correo" data-pattern="/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/" required>
+            <input class="form-control input-lg" type="email" id="email" name="email" maxlength="50" placeholder="Correo" data-error="El correo de seguir esta forma ejemplo.correo@dominio.com" pattern="^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$"  required>
             <span class="ion-at form-control-feedback"></span>
             <div class="help-block with-errors"></div>
         </div>

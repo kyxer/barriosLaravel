@@ -111,8 +111,8 @@
 
       if (!prevErrors || errors.toString() !== prevErrors.toString()) {
         e = errors.length
-          ? $.Event('invalid.bs.validator', {relatedTarget: $el[0], detail: errors})
-          : $.Event('valid.bs.validator', {relatedTarget: $el[0], detail: prevErrors})
+            ? $.Event('invalid.bs.validator', {relatedTarget: $el[0], detail: errors})
+            : $.Event('valid.bs.validator', {relatedTarget: $el[0], detail: prevErrors})
 
         self.$element.trigger(e)
       }
@@ -134,9 +134,9 @@
 
     function getErrorMessage(key) {
       return $el.data(key + '-error')
-        || $el.data('error')
-        || key == 'native' && $el[0].validationMessage
-        || options.errors[key]
+          || $el.data('error')
+          || key == 'native' && $el[0].validationMessage
+          || options.errors[key]
     }
 
     $.each(Validator.VALIDATORS, $.proxy(function (key, validator) {
@@ -151,8 +151,8 @@
         var data = {}
         data[$el.attr('name')] = $el.val()
         $.get($el.data('remote'), data)
-          .fail(function (jqXHR, textStatus, error) { errors.push(getErrorMessage('remote') || error) })
-          .always(function () { deferred.resolve(errors)})
+            .fail(function (jqXHR, textStatus, error) { errors.push(getErrorMessage('remote') || error) })
+            .always(function () { deferred.resolve(errors)})
       })
     } else deferred.resolve(errors)
 
@@ -181,17 +181,17 @@
       if (!errors.length) return
 
       errors = $('<ul/>')
-        .addClass('list-unstyled')
-        .append($.map(errors, function (error) { return $('<li/>')[method](error) }))
+          .addClass('list-unstyled')
+          .append($.map(errors, function (error) { return $('<li/>')[method](error) }))
 
       $block.data('bs.validator.originalContent') === undefined && $block.data('bs.validator.originalContent', $block.html())
       $block.empty().append(errors)
       $group.addClass('has-error')
 
       $feedback.length
-        && $feedback.removeClass(this.options.feedback.success)
-        && $feedback.addClass(this.options.feedback.error)
-        && $group.removeClass('has-success')
+      && $feedback.removeClass(this.options.feedback.success)
+      && $feedback.addClass(this.options.feedback.error)
+      && $group.removeClass('has-success')
     })
   }
 
@@ -204,9 +204,9 @@
     $group.removeClass('has-error')
 
     $feedback.length
-      && $feedback.removeClass(this.options.feedback.error)
-      && $feedback.addClass(this.options.feedback.success)
-      && $group.addClass('has-success')
+    && $feedback.removeClass(this.options.feedback.error)
+    && $feedback.addClass(this.options.feedback.success)
+    && $group.addClass('has-success')
   }
 
   Validator.prototype.hasErrors = function () {
@@ -220,8 +220,8 @@
   Validator.prototype.isIncomplete = function () {
     function fieldIncomplete() {
       return this.type === 'checkbox' ? !this.checked                                   :
-             this.type === 'radio'    ? !$('[name="' + this.name + '"]:checked').length :
-                                        $.trim(this.value) === ''
+          this.type === 'radio'    ? !$('[name="' + this.name + '"]:checked').length :
+          $.trim(this.value) === ''
     }
 
     return !!this.$element.find(inputSelector).filter('[required]').filter(fieldIncomplete).length
@@ -235,10 +235,9 @@
   Validator.prototype.toggleSubmit = function () {
     if(!this.options.disable) return
     var $btn = $('button[type="submit"], input[type="submit"]')
-      .filter('[form="' + this.$element.attr('id') + '"]')
-      .add(this.$element.find('input[type="submit"], button[type="submit"]'))
+        .filter('[form="' + this.$element.attr('id') + '"]')
+        .add(this.$element.find('input[type="submit"], button[type="submit"]'))
     $btn.toggleClass('disabled', this.isIncomplete() || this.hasErrors())
-      .css({'pointer-events': 'all', 'cursor': 'pointer'})
   }
 
   Validator.prototype.defer = function ($el, callback) {
@@ -250,26 +249,26 @@
 
   Validator.prototype.destroy = function () {
     this.$element
-      .removeAttr('novalidate')
-      .removeData('bs.validator')
-      .off('.bs.validator')
+        .removeAttr('novalidate')
+        .removeData('bs.validator')
+        .off('.bs.validator')
 
     this.$element.find(inputSelector)
-      .off('.bs.validator')
-      .removeData(['bs.validator.errors', 'bs.validator.deferred'])
-      .each(function () {
-        var $this = $(this)
-        var timeout = $this.data('bs.validator.timeout')
-        window.clearTimeout(timeout) && $this.removeData('bs.validator.timeout')
-      })
+        .off('.bs.validator')
+        .removeData(['bs.validator.errors', 'bs.validator.deferred'])
+        .each(function () {
+          var $this = $(this)
+          var timeout = $this.data('bs.validator.timeout')
+          window.clearTimeout(timeout) && $this.removeData('bs.validator.timeout')
+        })
 
     this.$element.find('.help-block.with-errors').each(function () {
       var $this = $(this)
       var originalContent = $this.data('bs.validator.originalContent')
 
       $this
-        .removeData('bs.validator.originalContent')
-        .html(originalContent)
+          .removeData('bs.validator.originalContent')
+          .html(originalContent)
     })
 
     this.$element.find('input[type="submit"], button[type="submit"]').removeClass('disabled')
