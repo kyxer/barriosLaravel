@@ -89,7 +89,7 @@ class PasswordController extends Controller
 
         switch ($response) {
             case Password::PASSWORD_RESET:
-                return redirect()->back()->with('success',[1]);
+                return redirect()->back()->with('successReset',[1]);
 
             default:
                 return redirect()->back()

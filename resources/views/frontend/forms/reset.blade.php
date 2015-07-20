@@ -3,7 +3,7 @@
 
     <div class="center-form panel">
         <div class="panel-body" >
-            @if(session()->has('success'))
+            @if(!session()->has('successReset'))
                 @if($errors->has())
                     <div class="alert alert-dismissible alert-danger jq-alert">
                         <button type="button" class="close" data-dismiss="alert">×</button>
