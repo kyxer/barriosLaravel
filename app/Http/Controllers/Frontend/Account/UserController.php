@@ -97,6 +97,7 @@ class UserController extends Controller
             $user->email =  Request::input('email');
             $user->is_verify = 0;
             $user->verified_code = null;
+            $user->provider_id = null;
         }
 
         $user->first_name = Request::input('first_name');
