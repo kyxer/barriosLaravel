@@ -120,4 +120,8 @@ $api->version('v1',['namespace' => 'App\Http\Controllers\Api'],function ($api) {
 
     $api->post('auth/register', ['as' => 'api.postRegister', 'uses' => 'Auth\AuthController@postRegister']);
 
+    $api->post('auth/recover', ['as' => 'api.postRecover', 'uses' => 'Auth\AuthController@postRecover']);
+
+    $api->put('users/me', [ 'as' => 'api.putUser', 'uses' => 'Account\UserController@putUser' ]);
+
 });

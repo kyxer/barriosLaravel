@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-group has-feedback">
-            <input class="form-control input-lg" type="text" id="postal_code" data-pattern-error="Formato incorrecto solo números" data-minlength-error="Longitud minima requerida 5" data-minlength="5"  maxlength="5" data-pattern="/^\d+$/" name="postal_code" placeholder="Código Postal" required>
+            <input class="form-control input-lg" type="text" id="postal_code" data-pattern-error="Formato incorrecto solo números" data-minlength-error="Longitud minima requerida 5" data-minlength="5"  maxlength="5" pattern="^\d+$" name="postal_code" placeholder="Código Postal" required>
             <span class="ion-location form-control-feedback"></span>
             <div class="help-block with-errors">Exactamente 5 números </div>
         </div>

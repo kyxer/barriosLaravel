@@ -76,7 +76,6 @@ class UserRepository
         $avatars = MyFile::randomAvatar();
         $data['avatar_thumbnail'] = $avatars['avatar_thumbnail'];
         $data['avatar_standar'] = $avatars['avatar_standar'];
-        $data['verified_code'] = str_random(60);
 
         return User::create([
             'first_name' => $data['first_name'],

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Auth;
 use Illuminate\Http\Request;
 
 use JWTAuth;
+use Mockery\CountValidator\Exception;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -15,6 +16,9 @@ use Illuminate\Support\Facades\Input;
 use Mail;
 use App\Repositories\UserRepository;
 use App\User;
+use App\Barrio;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Mail\Message;
 
 class AuthController extends Controller
 {
@@ -24,7 +28,7 @@ class AuthController extends Controller
      */
     private $user;
 
-
+    protected $subjectRecover = "Recuperar Contraseña";
     protected $subjectVerified = "Verifica tu cuenta";
 
 
@@ -63,12 +67,19 @@ class AuthController extends Controller
 
         $user = User::where('email','=',$request->input('email'))->first()->toArray();
         $token = compact('token');
-        $user['token'] = $token;
-        // all good so return the token
+        $user['token'] = $token['token'];
+
+        $user['barrio'] = '';
+        $barrio = Barrio::where('postal_code','=',$user['postal_code'])->first();
+        if($barrio) {
+            $user['barrio'] = $barrio->name;
+        }
+
         return $user;
     }
 
     public function postRegister(Request $request){
+
         $rules = [
             'email' => ['required', 'email', 'confirmed', 'unique:users'],
             'email_confirmation' => ['required'],
@@ -79,13 +90,13 @@ class AuthController extends Controller
         ];
 
         $data = $request->all();
-        
+
         $validator = app('validator')->make($data, $rules);
 
         if ($validator->fails()) {
             throw new DingoException\StoreResourceFailedException('Could not Create user.', $validator->errors());
         }
-
+        $data['verified_code'] = str_random(60);
         $user = $this->user->create($data);
 
         Mail::send('emails.verify', array('verified_code' =>$data['verified_code']), function($message) {
@@ -94,8 +105,41 @@ class AuthController extends Controller
         });
 
         $token = JWTAuth::fromUser($user);
-
+        $user = $user->toArray();
         $user['token'] = $token;
+
+        $user['barrio'] = '';
+        $barrio = Barrio::where('postal_code','=',$user['postal_code'])->first();
+        if($barrio) {
+            $user['barrio'] = $barrio->name;
+        }
+
         return $user;
+    }
+
+    public function postRecover(Request $request){
+        $rules = [
+            'email' => ['required', 'email'],
+        ];
+
+        $data = $request->all();
+
+        $validator = app('validator')->make($data, $rules);
+
+        if ($validator->fails()) {
+            throw new DingoException\StoreResourceFailedException('Could not Create user.', $validator->errors());
+        }
+
+        $response = Password::sendResetLink($request->only('email'), function (Message $message) {
+            $message->subject($this->subjectRecover);
+        });
+
+        switch ($response) {
+            case Password::RESET_LINK_SENT:
+                return "Mail Sent";
+
+            case Password::INVALID_USER:
+                throw new Exceptions\NotFoundHttpException('Not Found Email');
+        }
     }
 }
