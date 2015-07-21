@@ -1,0 +1,34 @@
+{
+    "name": "joselfonseca/laravel-api-tools",
+    "description": "Some tools for Laravel API development, nothing really new, just wrapers and helper stuff",
+    "license": "MIT",    
+    "authors": [
+        {
+            "name": "Jose Luis Fonseca",
+            "email": "jose@ditecnologia.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git://github.com/orchestral/phpseclib.git"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "tymon/jwt-auth": "0.5.*",
+        "dingo/api" : "0.9.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.2.0"
+    },
+    "autoload": {
+        "classmap": [
+            
+        ],
+        "psr-4": {
+            "Joselfonseca\\LaravelApiTools\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}

@@ -10,6 +10,7 @@ namespace App\Repositories;
 
 use App\Helpers\MyImage;
 use App\User;
+use App\Helpers\MyFile;
 
 class UserRepository
 {
@@ -68,5 +69,23 @@ class UserRepository
             $user->provider_id = $userData->id;
             $user->save();
         }
+    }
+
+    public function create(array $data)
+    {
+        $avatars = MyFile::randomAvatar();
+        $data['avatar_thumbnail'] = $avatars['avatar_thumbnail'];
+        $data['avatar_standar'] = $avatars['avatar_standar'];
+        $data['verified_code'] = str_random(60);
+
+        return User::create([
+            'first_name' => $data['first_name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'postal_code' => $data['postal_code'],
+            'avatar_standar' => $data['avatar_standar'],
+            'avatar_thumbnail' => $data['avatar_thumbnail'],
+            'verified_code' => $data['verified_code']
+        ]);
     }
 }

@@ -111,3 +111,13 @@ Route::get('auth/{provider}',[
         'as' => 'handleRedirectFacebook',
         'uses' => 'Frontend\Auth\AuthController@getLoginWithProvider']
 );
+
+$api = app('Dingo\Api\Routing\Router');
+
+$api->version('v1',['namespace' => 'App\Http\Controllers\Api'],function ($api) {
+
+    $api->post('auth/login', ['as' => 'api.postLogin', 'uses' => 'Auth\AuthController@postLogin']);
+
+    $api->post('auth/register', ['as' => 'api.postRegister', 'uses' => 'Auth\AuthController@postRegister']);
+
+});
