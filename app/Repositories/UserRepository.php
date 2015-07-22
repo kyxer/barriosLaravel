@@ -34,7 +34,8 @@ class UserRepository
         return $user;
     }
 
-    public function checkIfUserNeedsUpdating($userData, $user) {
+    public function checkIfUserNeedsUpdating($userData, $user)
+    {
 
         $socialData = [
             'provider_id'=> $userData->id,
@@ -67,6 +68,57 @@ class UserRepository
             $user->is_verify=1;
             $user->verified_code=null;
             $user->provider_id = $userData->id;
+            $user->save();
+        }
+    }
+
+    public function findByUserNameOrCreateFromApp(array $userData){
+
+        $user = User::where('email', '=', $userData['email'])
+            ->orWhere('provider_id','=',$userData['provider_id'])
+            ->first();
+        if(!$user) {
+            $user = User::create([
+                'provider_id' => $userData['provider_id'],
+                'first_name' => $userData['first_name'],
+                'last_name' => $userData['last_name'],
+                'email' => $userData['email'],
+                'avatar_standar' => $userData['avatar_standar'],
+                'avatar_thumbnail' => $userData['avatar_thumbnail'],
+                'is_verify'=>1,
+                'is_active' => 1,
+            ]);
+        }
+        $this->checkIfUserNeedsUpdatingFromApp($userData, $user);
+
+        return $user;
+    }
+
+    public function checkIfUserNeedsUpdatingFromApp($userData, $user)
+    {
+        $dbData = [
+            'provider_id' => $user->provider_id,
+            'avatar_standar' => $user->avatar_standar,
+            'avatar_thumbnail' => $user->avatar_thumbnail,
+            'email' => $user->email,
+            'first_name' => $user->first_name,
+            'last_name' => $user->last_name
+        ];
+
+        if (!empty(array_diff($userData, $dbData))) {
+
+            MyImage::deleteAvatar($user->avatar_standar);
+            MyImage::deleteAvatar($user->avatar_thumbnail);
+
+            $user->avatar_standar = $userData->avatar_original;
+            $user->avatar_thumbnail = $userData->avatar;
+
+            $user->email = $userData->email;
+            $user->first_name = $userData->user['first_name'];
+            $user->last_name = $userData->user['last_name'];
+            $user->is_verify=1;
+            $user->verified_code=null;
+            $user->provider_id = $userData['provider_id'];
             $user->save();
         }
     }

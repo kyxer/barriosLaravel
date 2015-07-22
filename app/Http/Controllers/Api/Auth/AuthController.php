@@ -117,6 +117,43 @@ class AuthController extends Controller
         return $user;
     }
 
+    public function postProvider(Request $request){
+
+        $rules = [
+            'email' => ['required', 'email'],
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'provider_id' => ['required'],
+            'avatar_standar' => ['required'],
+            'avatar_thumbnail' => ['required']
+        ];
+
+        $data = $request->all();
+
+        $validator = app('validator')->make($data, $rules);
+
+        if ($validator->fails()) {
+            throw new DingoException\StoreResourceFailedException('Error data', $validator->errors());
+        }
+
+        $user = $this->user->findByUserNameOrCreateFromApp($data);
+
+        $token = JWTAuth::fromUser($user);
+        $user = $user->toArray();
+        $user['token'] = $token;
+
+        $user['barrio'] = '';
+        if(isset($user['postal_code'])) {
+            $barrio = Barrio::where('postal_code', '=', $user['postal_code'])->first();
+            if ($barrio) {
+                $user['barrio'] = $barrio->name;
+            }
+        }
+
+        return $user;
+
+    }
+
     public function postRecover(Request $request){
         $rules = [
             'email' => ['required', 'email'],

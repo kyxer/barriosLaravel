@@ -120,9 +120,13 @@ $api->version('v1',['midleware'=>['cors'],  'namespace' => 'App\Http\Controllers
 
     $api->post('auth/register', ['as' => 'api.postRegister', 'uses' => 'Auth\AuthController@postRegister']);
 
+    $api->post('auth/provider', ['as' => 'api.postProvider', 'uses' => 'Auth\AuthController@postProvider']);
+
     $api->post('auth/recover', ['as' => 'api.postRecover', 'uses' => 'Auth\AuthController@postRecover']);
+
+
 
     $api->put('users/me', [ 'as' => 'api.putUser', 'uses' => 'Account\UserController@putUser' ]);
 
-    $api->post('users/me/avatar', [ 'as' => 'api.putAvatar', 'uses' => 'Account\UserController@postAvatar' ]);
+    $api->post('users/me/avatar', [ 'as' => 'api.putAvatar', 'uses' => 'Account\UserController@postAvatar']);
 });
