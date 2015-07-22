@@ -124,4 +124,5 @@ $api->version('v1',['midleware'=>['cors'],  'namespace' => 'App\Http\Controllers
 
     $api->put('users/me', [ 'as' => 'api.putUser', 'uses' => 'Account\UserController@putUser' ]);
 
+    $api->post('users/me/avatar', [ 'as' => 'api.putAvatar', 'uses' => 'Account\UserController@postAvatar' ]);
 });
