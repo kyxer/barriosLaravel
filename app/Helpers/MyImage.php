@@ -174,4 +174,66 @@ class MyImage
         }
 
     }
+
+    public static function uploadAvatarBase64(){
+
+        $tmp_archivo = base64_decode(Input::file('avatar'));
+
+        $lienzo_ancho= 150;
+        $lienzo_alto = 150;
+
+        $info_imagen = getimagesizefromstring($tmp_archivo);
+        $imagen_ancho = $info_imagen[0];
+        $imagen_alto = $info_imagen[1];
+
+        $imagen = imagejpeg($tmp_archivo);
+
+        $lienzo = imagecreatetruecolor($lienzo_ancho, $lienzo_alto );
+        $blanco = imagecolorallocate($lienzo, 155, 155, 155);
+        imagefill($lienzo, 0, 0, $blanco);
+
+        if($imagen_ancho>=$imagen_alto)
+        { //imagen horizontal
+
+            $imagen_inicio_ancho=($imagen_ancho/2)-($imagen_alto/2);
+            $imagen_inicio_alto=0;
+            $imagen_nuevo_ancho=$imagen_alto;
+            $imagen_nuevo_alto=$imagen_alto;
+
+        }
+        else
+        { //imagen vertical
+
+            $imagen_inicio_ancho=0;
+            $imagen_inicio_alto=($imagen_alto/2)-($imagen_ancho/2);
+            $imagen_nuevo_ancho=$imagen_ancho;
+            $imagen_nuevo_alto=$imagen_ancho;
+
+        }
+
+        imagecopyresampled($lienzo, $imagen, 0, 0, $imagen_inicio_ancho, $imagen_inicio_alto, $lienzo_ancho, $lienzo_alto, $imagen_nuevo_ancho, $imagen_nuevo_alto);
+
+        $imageName= MyImage::tempnamSfx(sys_get_temp_dir(), "jpg");
+        imagejpeg($lienzo, $imageName, 100);
+
+        MyImage::createThumb($imageName);
+        /*$nameThumb = MyImage::nameThumb($imageName);
+        $handle = fopen($imageName, "r");
+        $data = fread($handle, filesize($imageName));
+        $headers = array('Authorization: Client-ID ' . env('IMGUR_CLIENT_ID'));
+        $postFields = array('image' => base64_encode($data));
+
+        $dataImage = MyCurl::sendPost(env('IMGUR_UPLOAD_IMAGE_ENDPOINT'), $postFields, $headers);
+
+        $handle = fopen($nameThumb, "r");
+        $data = fread($handle, filesize($nameThumb));
+        $headers = array('Authorization: Client-ID ' . env('IMGUR_CLIENT_ID'));
+        $postFields = array('image' => base64_encode($data));
+
+        $dataThumb = MyCurl::sendPost(env('IMGUR_URL_UPLOAD_IMAGE'), $postFields, $headers);*/
+
+
+        return MyImage::moveAvatars($imageName);
+
+    }
 }

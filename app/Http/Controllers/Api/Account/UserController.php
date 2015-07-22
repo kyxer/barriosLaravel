@@ -81,7 +81,7 @@ class UserController extends Controller
     public function postAvatar(Request $request){
 
         $rules = [
-            'avatar' => ['required','image', 'mimes:jpeg,png,gif']
+            'avatar' => ['required']
         ];
 
         $data = $request->all();
@@ -98,7 +98,7 @@ class UserController extends Controller
             throw new Exceptions\AccessDeniedHttpException('Invalid Credentials');
         }
 
-        $avatars = MyImage::uploadAvatar();
+        $avatars = MyImage::uploadAvatarBase64();
 
         MyImage::deleteAvatar($user->avatar_standar);
         MyImage::deleteAvatar($user->avatar_thumbnail);
