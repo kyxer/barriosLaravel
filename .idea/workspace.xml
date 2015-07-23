@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="80486b6a-7bc6-4307-b6fd-435106596cea" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Helpers/MyImage.php" afterPath="$PROJECT_DIR$/app/Helpers/MyImage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="barrioosLaravel.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,8 +27,8 @@
       <file leaf-file-name="MyImage.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Helpers/MyImage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.16216215">
-              <caret line="190" column="7" selection-start-line="190" selection-start-column="7" selection-end-line="190" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.6756757">
+              <caret line="191" column="52" selection-start-line="191" selection-start-column="40" selection-end-line="191" selection-end-column="52" />
               <folding>
                 <element signature="e#117#153#0#PHP" expanded="true" />
                 <element signature="e#211#546#0#PHP" expanded="false" />
@@ -834,7 +833,7 @@
         <state vertical-scroll-proportion="-0.6923077">
           <caret line="23" column="59" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="59" />
           <folding>
-            <element signature="e#122#146#0#PHP" expanded="true" />
+            <element signature="e#122#146#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -867,8 +866,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Helpers/MyImage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16216215">
-          <caret line="190" column="7" selection-start-line="190" selection-start-column="7" selection-end-line="190" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.6756757">
+          <caret line="191" column="52" selection-start-line="191" selection-start-column="40" selection-end-line="191" selection-end-column="52" />
           <folding>
             <element signature="e#117#153#0#PHP" expanded="true" />
             <element signature="e#211#546#0#PHP" expanded="false" />

@@ -178,7 +178,9 @@ class MyImage
 
     public static function uploadAvatarBase64(){
 
-        $tmp_archivo = base64_decode(Request::input('avatar'));
+        $tmp_archivo =file_get_contents(Request::input('avatar'));
+
+
 
         $lienzo_ancho= 150;
         $lienzo_alto = 150;
@@ -188,7 +190,7 @@ class MyImage
         $imagen_alto = $info_imagen[1];
 
         $imagen = imagecreatefromstring($tmp_archivo);
-       
+
         $lienzo = imagecreatetruecolor($lienzo_ancho, $lienzo_alto );
         $blanco = imagecolorallocate($lienzo, 155, 155, 155);
         imagefill($lienzo, 0, 0, $blanco);
