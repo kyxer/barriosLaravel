@@ -2,6 +2,6 @@
 Homestead.yaml
 .env
 .env.1and1
-/.idea
+.idea/
 /assets/uploads
 /storage

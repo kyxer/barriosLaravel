@@ -32,7 +32,7 @@
         <div class="form-group">
             <label for="name" class="col-lg-4 control-label">Repita Nueva Contraseña</label>
             <div class="col-lg-8">
-                <input type="password" value="" data-maxlenght-error="Longitud de Nueva Contraseña excedida 16" data-match="#password" class="form-control" name="password_confirmation" maxlength="16" placeholder="Nueva Contraseña" required >
+                <input type="password" value="" data-maxlenght-error="Longitud de Nueva Contraseña excedida 16" data-match-error="Contraseñas no Coinciden" data-match="#password" class="form-control" name="password_confirmation" maxlength="16" placeholder="Nueva Contraseña" required >
                 <div class="help-block with-errors"></div>
             </div>
         </div>
