@@ -139,7 +139,7 @@ class UserRepository
             'avatar_standar' => $data['avatar_standar'],
             'avatar_thumbnail' => $data['avatar_thumbnail'],
             'verified_code' => $data['verified_code'],
-            'codebidi' => str_random(15),
+            'bidicode' => str_random(15),
         ]);
     }
 }
