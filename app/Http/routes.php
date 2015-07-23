@@ -40,6 +40,11 @@ Route::group(['middleware' => ['auth']], function() {
         'as' => 'updateUser',
         'uses' => 'Frontend\Account\UserController@postProfile'
     ]);
+
+    Route::post('account/user/password', [
+        'as' => 'changePassword',
+        'uses' => 'Frontend\Account\UserController@postChangePassword'
+    ]);
 });
 
 Route::get('auth/login/{provider}',[

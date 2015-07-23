@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Session;
 use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Password;
 
 class UserController extends Controller
 {
@@ -112,6 +113,28 @@ class UserController extends Controller
             ->with(['success'=>1]);
 
     }
+
+    public function postChangePassword(RequestHttp $request){
+
+        $this->validate($request, [
+            'password_old' => 'required|min:6|max:16',
+            'password' => 'required|min:6|max:16|confirmed',
+            'password_confirmation' => 'required|min:6|max:16',
+        ]);
+
+        $user = Auth::user();
+        if(!Auth::attempt(['email' => $user->email, 'password' => $request->input('password_old'), 'is_active' => 1]))
+            return redirect()->back()->withErrors(["password" => "Contraseña invalida"]);
+
+
+        $user->password = bcrypt($request->input('password'));
+        $user->save();
+        Auth::login($user);
+
+        return redirect()->back()->with(["password"=>"Contraseña cambiada exitosamente" ]);
+
+    }
+
 
 
     public function postVerify(RequestHttp $request){

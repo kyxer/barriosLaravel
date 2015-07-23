@@ -1,5 +1,6 @@
 @include('frontend.forms.avatar')
 @include('frontend.forms.updateUser')
+@include('frontend.forms.changePassword')
 @extends('frontend.app')
 @section('content')
     <div class="jumbotron">
@@ -30,7 +31,7 @@
                             </div>
                         </div>
                     @endif
-                    @if(session()->has('send_verify_manual_check'))
+                        @if(session()->has('send_verify_manual_check'))
                             <div  class="alert alert-dismissible alert-success" >
                                 <button type="button" class="close" data-dismiss="alert" >×</button>
                                 <div >
@@ -38,7 +39,11 @@
                                 </div>
                             </div>
                         @endif
-                    @yield('updateUserForm')
+
+                        @yield('updateUserForm')
+                        <br><br>
+                        @yield('changePasswordForm')
+
                 </div>
             </div>
         </div>

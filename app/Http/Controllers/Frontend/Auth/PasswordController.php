@@ -62,7 +62,7 @@ class PasswordController extends Controller
         if (is_null($token)) {
             throw new NotFoundHttpException;
         }
-        //die(var_dump($request->session()->get('flash')));
+
         return view('frontend.forms.reset')->with('token', $token);
     }
 
