@@ -11,11 +11,12 @@ namespace App\Helpers;
 use Illuminate\Support\Facades\File;
 use Input;
 use Image;
+use Request;
 
 
 class MyImage
 {
-     protected static function tempnamSfx($path, $suffix){
+    protected static function tempnamSfx($path, $suffix){
 
         $i = 50;
         do
@@ -177,7 +178,7 @@ class MyImage
 
     public static function uploadAvatarBase64(){
 
-        $tmp_archivo = base64_decode(Input::file('avatar'));
+        $tmp_archivo = base64_decode(Request::input('avatar'));
 
         $lienzo_ancho= 150;
         $lienzo_alto = 150;
@@ -186,8 +187,8 @@ class MyImage
         $imagen_ancho = $info_imagen[0];
         $imagen_alto = $info_imagen[1];
 
-        $imagen = imagejpeg($tmp_archivo);
-
+        $imagen = imagecreatefromstring($tmp_archivo);
+       
         $lienzo = imagecreatetruecolor($lienzo_ancho, $lienzo_alto );
         $blanco = imagecolorallocate($lienzo, 155, 155, 155);
         imagefill($lienzo, 0, 0, $blanco);
