@@ -37,6 +37,7 @@ class RedirectResponse extends Response
      */
     public function __construct($url, $status = 302, $headers = array())
     {
+
         if (empty($url)) {
             throw new \InvalidArgumentException('Cannot redirect to an empty URL.');
         }

@@ -15,7 +15,7 @@
     return view('welcome');
 });*/
 
-Route::get('/', [
+Route::get('/',[
     'as' => 'home',
     'uses' => 'Frontend\Dashboard\HomeController@index'
 ]);
@@ -114,7 +114,8 @@ Route::get('auth/{provider}',[
 
 $api = app('Dingo\Api\Routing\Router');
 
-$api->version('v1',['midleware'=>['cors'],  'namespace' => 'App\Http\Controllers\Api'],function ($api) {
+
+$api->version('v1',[ 'namespace' => 'App\Http\Controllers\Api'],function ($api) {
 
     $api->post('auth/login', ['as' => 'api.postLogin', 'uses' => 'Auth\AuthController@postLogin']);
 

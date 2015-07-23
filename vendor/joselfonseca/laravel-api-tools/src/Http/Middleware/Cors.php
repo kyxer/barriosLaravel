@@ -18,5 +18,4 @@ class Cors {
             ->header('Access-Control-Allow-Headers', 'Content-Type, Accept, Authorization, X-Requested-With');
 
     }
-
 }

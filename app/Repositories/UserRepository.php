@@ -28,6 +28,7 @@ class UserRepository
                 'avatar_thumbnail' => $userData->avatar,
                 'is_verify'=>1,
                 'is_active' => 1,
+                'bidicode' => str_random(15)
             ]);
         }
         $this->checkIfUserNeedsUpdating($userData, $user);
@@ -87,6 +88,7 @@ class UserRepository
                 'avatar_thumbnail' => $userData['avatar_thumbnail'],
                 'is_verify'=>1,
                 'is_active' => 1,
+                'bidicode' => str_random(15)
             ]);
         }
         $this->checkIfUserNeedsUpdatingFromApp($userData, $user);
@@ -136,7 +138,8 @@ class UserRepository
             'postal_code' => $data['postal_code'],
             'avatar_standar' => $data['avatar_standar'],
             'avatar_thumbnail' => $data['avatar_thumbnail'],
-            'verified_code' => $data['verified_code']
+            'verified_code' => $data['verified_code'],
+            'codebidi' => str_random(15),
         ]);
     }
 }

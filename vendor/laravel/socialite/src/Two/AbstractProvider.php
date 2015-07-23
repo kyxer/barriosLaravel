@@ -104,6 +104,7 @@ abstract class AbstractProvider implements ProviderContract
      */
     public function redirect()
     {
+
         $this->request->getSession()->set(
             'state', $state = sha1(time().$this->request->getSession()->get('_token'))
         );

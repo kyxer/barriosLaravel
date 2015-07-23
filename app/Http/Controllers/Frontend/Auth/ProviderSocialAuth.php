@@ -52,16 +52,18 @@ class ProviderSocialAuth
         if (!$request)
             return $this->getAuthorizationFirst($provider);
 
+
+
         $user = $this->users->findByUserNameOrCreate($this->getSocialUser($provider));
 
         $this->auth->login($user, true);
 
         return $listener->userHasLoggedIn($user);
 
-
     }
 
     private function getAuthorizationFirst($provider){
+
         return $this->socialite->driver($provider)->scopes(['public_profile','email'])->redirect();
     }
 

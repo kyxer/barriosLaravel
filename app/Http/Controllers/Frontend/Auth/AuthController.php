@@ -60,7 +60,8 @@ class AuthController extends Controller
             'postal_code' => $data['postal_code'],
             'avatar_standar' => $data['avatar_standar'],
             'avatar_thumbnail' => $data['avatar_thumbnail'],
-            'verified_code' => $data['verified_code']
+            'verified_code' => $data['verified_code'],
+            'bidicode' => str_random(15)
         ]);
     }
 

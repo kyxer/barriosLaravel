@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterUserAddProvider extends Migration
+class AlterUserAddBidicode extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,9 @@ class AlterUserAddProvider extends Migration
      */
     public function up()
     {
+        //
         Schema::table('users', function ($table) {
-            $table->string('provider',50)->nullable();
-            $table->string('provider_id')->unique()->nullable();
+            $table->string('bidicode',20)->unique()->nullable();
         });
     }
 
@@ -26,8 +26,7 @@ class AlterUserAddProvider extends Migration
     public function down()
     {
         Schema::table('users', function($table){
-            $table->dropColumn('provider');
-            $table->dropColum('provider_id');
+            $table->dropColumn('bidicode');
         });
     }
 }

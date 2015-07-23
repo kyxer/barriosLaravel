@@ -154,7 +154,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
-        Joselfonseca\LaravelApiTools\LaravelApiToolsServiceProvider::class
+        Joselfonseca\LaravelApiTools\LaravelApiToolsServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class
 
     ],
 
