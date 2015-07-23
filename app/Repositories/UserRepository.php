@@ -110,12 +110,12 @@ class UserRepository
             MyImage::deleteAvatar($user->avatar_standar);
             MyImage::deleteAvatar($user->avatar_thumbnail);
 
-            $user->avatar_standar = $userData->avatar_original;
-            $user->avatar_thumbnail = $userData->avatar;
+            $user->avatar_standar = $userData['avatar_standar'];
+            $user->avatar_thumbnail = $userData['avatar_thumbnail'];
 
-            $user->email = $userData->email;
-            $user->first_name = $userData->user['first_name'];
-            $user->last_name = $userData->user['last_name'];
+            $user->email = $userData['email'];
+            $user->first_name = $userData['first_name'];
+            $user->last_name = $userData['last_name'];
             $user->is_verify=1;
             $user->verified_code=null;
             $user->provider_id = $userData['provider_id'];
