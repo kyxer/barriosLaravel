@@ -1,4 +1,13 @@
 @section('registerForm')
+    <a href="{{ URL::route('loginWithProvider', ['povider'=>'facebook'])  }}">
+        <button class="btn btn-block btn-facebook">
+            <i class="ion-social-facebook"></i> Ingresa con Facebook
+        </button>
+    </a>
+    <div class="signup-or-separator">
+        <h6 class="text">O Registra tus Datos</h6>
+        <hr>
+    </div>
     {!! Form::open(['route'=>'register', 'data-toggle' => 'validator',  'role'=>'form', 'id'=>'registerForm']) !!}
 
         <div class="form-group has-feedback">
@@ -50,14 +59,6 @@
             <a class="jq-manual-login" > Inicia Sesión ahora</a>
         </small>
     </p>
-    <div class="signup-or-separator">
-        <h6 class="text">O</h6>
-        <hr>
-    </div>
-    <a href="{{ URL::route('loginWithProvider', ['povider'=>'facebook'])  }}">
-        <button class="btn btn-block btn-facebook">
-            <i class="ion-social-facebook"></i> Registrate con Facebook
-        </button>
-    </a>
+
 
 @stop
