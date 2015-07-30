@@ -17,13 +17,13 @@
         </div>
 
         <div class="form-group has-feedback">
-            <input class="form-control input-lg" type="email" id="email" name="email" maxlength="50" placeholder="Correo" data-error="El correo de seguir esta forma ejemplo.correo@dominio.com" pattern="^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$"  required>
+            <input class="form-control input-lg" type="email" id="re_email" name="email" maxlength="50" placeholder="Correo" data-error="El correo de seguir esta forma ejemplo.correo@dominio.com" pattern="^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$"  required>
             <span class="ion-at form-control-feedback"></span>
             <div class="help-block with-errors"></div>
         </div>
 
         <div class="form-group has-feedback">
-            <input class="form-control input-lg" type="email" id="email_confirmation" name="email_confirmation" data-match="#email" data-match-error="Correos no coinciden" placeholder="Repita Correo" required>
+            <input class="form-control input-lg" type="email" id="email_confirmation" name="email_confirmation" data-match="#re_email" data-match-error="Correos no coinciden" placeholder="Repita Correo" required>
             <span class="ion-at form-control-feedback"></span>
             <div class="help-block with-errors"></div>
         </div>
@@ -40,11 +40,11 @@
             <div class="help-block with-errors"></div>
         </div>
 
-        <div class="form-group has-feedback">
+        <!--<div class="form-group has-feedback">
             <input class="form-control input-lg" type="text" id="postal_code" data-pattern-error="Formato incorrecto solo números" data-minlength-error="Longitud minima requerida 5" data-minlength="5"  maxlength="5" pattern="^\d+$" name="postal_code" placeholder="Código Postal" required>
             <span class="ion-location form-control-feedback"></span>
             <div class="help-block with-errors">Exactamente 5 números </div>
-        </div>
+        </div> -->
 
         <p class="text-center text-muted"><small>Al hacer clic en Registrarse, aceptas los <a href="">términos y condiciones</a> y la <a href="">política de privacidad</a></small></p>
 

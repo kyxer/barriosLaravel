@@ -97,8 +97,8 @@ $(document).ready(function(){
 
     $('#registerForm').validator().on('submit', function (e) {
         if (!e.isDefaultPrevented()) {
-            console.log($('#modalRegister .panel-body .has-feedback').hasClass('has-error'));
-            if(!$('#modalRegister .panel-body .has-feedback').hasClass('has-error')) {
+
+            if(!$('#registerForm .has-feedback').hasClass('has-error')) {
 
                 doAjax('registerForm',
                     function () {
@@ -115,14 +115,14 @@ $(document).ready(function(){
                     },
                     function (response) {
                         $.each(response.responseJSON.error.message, function( index, value ) {
-                            var $sel = $('#modalRegister .panel-body .has-feedback [name='+index+']').parent();
+                            var $sel = $('#registerForm .has-feedback [name='+index+']').parent();
                             $sel.removeClass('has-success').addClass('has-error');
                             $sel.children('.with-errors').html(value);
                         });
                         var html = createErrorMessaje('Hay varios errores al momento de registrarse');
-                        $('#modalRegister .panel-body form').before(html);
+                        $('#registerForm').before(html);
                         $('.jq-alert').fadeIn();
-                        $('#modalRegister .panel-body :submit').addClass('disabled');
+                        $('#registerForm :submit').addClass('disabled');
 
                     });
             }
