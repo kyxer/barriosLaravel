@@ -1,3 +1,9 @@
+/**
+* Author: German Mendoza
+* Twitter: german0296 
+* Description: modelo para tabla barrios, esta tabla se encarga de representar los barrios de Madrid
+*/
+
 <?php
 
 namespace App;

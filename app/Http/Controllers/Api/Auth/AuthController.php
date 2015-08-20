@@ -1,3 +1,8 @@
+/**
+* Author: German Mendoza
+* Twitter: german0296 
+* Description: Controller for authenticate api, creating token
+*/
 <?php
 
 namespace App\Http\Controllers\Api\Auth;
@@ -22,26 +27,37 @@ use Illuminate\Mail\Message;
 
 class AuthController extends Controller
 {
-    //
-    /**
-     * @var UserRepository
-     */
-    private $user;
+    
 
+    private $user;
+    /**
+     * Subject for email recover
+     * @var string
+     */
     protected $subjectRecover = "Recuperar Contraseña";
+    /**
+     * Subeject for email verified
+     * @var string
+     */
     protected $subjectVerified = "Verifica tu cuenta";
 
 
     /**
-     * AuthController constructor.
+     * Constructor
+     * @param UserRepository $user object to check if user exist 
      */
     public function __construct(UserRepository $user)
     {
         $this->user = $user;
     }
-
+    /**
+     * Function to login user
+     * @param  Request $request 
+     * @return $user           
+     */
     public function postLogin(Request $request){
 
+        // Rules for server side validations
         $rules = [
             'email' => ['required', 'email'],
             'password' => ['required', 'min:6', 'max:16']
@@ -55,6 +71,7 @@ class AuthController extends Controller
         }
 
         $credentials['is_active'] = 1;
+        //chacking credentials for user
         try {
             // attempt to verify the credentials and create a token for the user
             if (!$token = JWTAuth::attempt($credentials)) {
@@ -78,8 +95,14 @@ class AuthController extends Controller
         return $user;
     }
 
+    /**
+     * Function to register user in system
+     * @param  Request $request
+     * @return $user           
+     */
     public function postRegister(Request $request){
 
+        // Rules for server side validations
         $rules = [
             'email' => ['required', 'email', 'confirmed', 'unique:users'],
             'email_confirmation' => ['required'],
@@ -98,12 +121,12 @@ class AuthController extends Controller
         }
         $data['verified_code'] = str_random(60);
         $user = $this->user->create($data);
-
+        //send verify mail
         Mail::send('emails.verify', array('verified_code' =>$data['verified_code']), function($message) {
             $message->to(Input::get('email'))
                 ->subject($this->subjectVerified);
         });
-
+        //create token for user
         $token = JWTAuth::fromUser($user);
         $user = $user->toArray();
         $user['token'] = $token;
@@ -116,9 +139,13 @@ class AuthController extends Controller
 
         return $user;
     }
-
+    /**
+     * Function to register or authenticated with facebook
+     * @param  Request $request         
+     * @return $user          
+     */
     public function postProvider(Request $request){
-
+        // Rules for server side validations
         $rules = [
             'email' => ['required', 'email'],
             'first_name' => ['required'],
@@ -136,8 +163,9 @@ class AuthController extends Controller
             throw new DingoException\StoreResourceFailedException('Error data', $validator->errors());
         }
 
+        //Check user in database
         $user = $this->user->findByUserNameOrCreateFromApp($data);
-
+        //Create token
         $token = JWTAuth::fromUser($user);
         $user = $user->toArray();
         $user['token'] = $token;
@@ -153,8 +181,13 @@ class AuthController extends Controller
         return $user;
 
     }
-
+    /**
+     * Function to send a recover email for password reset
+     * @param  Request $request
+     * @return string | Exception
+     */
     public function postRecover(Request $request){
+        // Rules for server side validations
         $rules = [
             'email' => ['required', 'email'],
         ];
@@ -167,6 +200,7 @@ class AuthController extends Controller
             throw new DingoException\StoreResourceFailedException('Could not Create user.', $validator->errors());
         }
 
+        //Sending email
         $response = Password::sendResetLink($request->only('email'), function (Message $message) {
             $message->subject($this->subjectRecover);
         });

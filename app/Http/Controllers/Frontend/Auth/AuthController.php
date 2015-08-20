@@ -1,3 +1,8 @@
+/**
+* Author: German Mendoza
+* Twitter: german0296 
+* Description: Controller to handle authentication frontend
+*/
 <?php
 
 namespace App\Http\Controllers\Frontend\Auth;
@@ -16,7 +21,7 @@ use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
-
+    
     protected $subjectVerified = "Verifica tu cuenta";
     /**
      * Create a new authentication controller instance.

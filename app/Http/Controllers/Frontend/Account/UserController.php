@@ -1,3 +1,8 @@
+/**
+* Author: German Mendoza
+* Twitter: german0296 
+* Description: Controller for account activity
+*/
 <?php
 
 namespace App\Http\Controllers\Frontend\Account;
@@ -17,8 +22,17 @@ use Illuminate\Support\Facades\Password;
 
 class UserController extends Controller
 {
+    /**
+     * Subject for verification email
+     * @var string
+     */
     protected $subjectVerified = "Verifica tu cuenta";
 
+    /**
+     * Function to validate register data
+     * @param  array  $data
+     * @return boolean
+     */
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -32,9 +46,14 @@ class UserController extends Controller
         ]);
     }
 
-    //
+    /**
+     * Function to add avatar to user
+     * @param  RequestHttp $request
+     * @return array       
+     */
     public function postAvatar(RequestHttp $request){
 
+        // Rules for server side validations 
         $this->validate($request, [
             'avatar' => 'required|image|mimes:jpeg,png,gif'
         ]);
@@ -66,7 +85,10 @@ class UserController extends Controller
             ]
         ], 200);
     }
-
+    /**
+     * Function to get view profile
+     * @return view
+     */
     public function getProfile(){
         $barrio = Barrio::where('postal_code','=',Auth::user()->postal_code)->first();
         if($barrio){
@@ -77,9 +99,14 @@ class UserController extends Controller
 
         return view('frontend.account.profile');
     }
-
+    /**
+     * Function to update profile
+     * @param   $request 
+     * @return redirect              
+     */
     public function postProfile(RequestHttp $request){
 
+        //Calling to validator function
         $validator = $this->validator(Request::all());
 
         if ($validator->fails()) {
@@ -113,15 +140,19 @@ class UserController extends Controller
             ->with(['success'=>1]);
 
     }
-
+    /**
+     * Function to change password
+     * @param  RequestHttp $request
+     * @return redirect            
+     */
     public function postChangePassword(RequestHttp $request){
-
+        // Rules for server side validations 
         $this->validate($request, [
             'password_old' => 'required|min:6|max:16',
             'password' => 'required|min:6|max:16|confirmed',
             'password_confirmation' => 'required|min:6|max:16',
         ]);
-
+        //Authenticating user with new password
         $user = Auth::user();
         if(!Auth::attempt(['email' => $user->email, 'password' => $request->input('password_old'), 'is_active' => 1]))
             return redirect()->back()->withErrors(["password" => "Contraseña invalida"]);
@@ -134,11 +165,13 @@ class UserController extends Controller
         return redirect()->back()->with(["password"=>"Contraseña cambiada exitosamente" ]);
 
     }
-
-
-
+    /**
+     * Function to send verify email
+     * @param  RequestHttp $request
+     * @return  redirect
+     */
     public function postVerify(RequestHttp $request){
-
+        // Rules for server side validations 
         $this->validate($request, [
             'redirect_to' => 'required'
         ]);
@@ -150,7 +183,7 @@ class UserController extends Controller
         $user->verified_code = $verified_code;
         $user->save();
 
-
+        //sending email
         Mail::send('emails.verify', array('verified_code' =>$verified_code), function($message) {
             $message->to(Auth::user()->email)
                 ->subject($this->subjectVerified);

@@ -1,3 +1,9 @@
+/**
+* Author: German Mendoza
+* Twitter: german0296 
+* Description: Controller for interection with table user.
+*/
+
 <?php
 
 namespace App\Http\Controllers\Api\Account;
@@ -12,17 +18,15 @@ use App\Helpers\MyImage;
 
 class UserController extends Controller
 {
-    //
+    
     /**
-     * UserController constructor.
+     * Fuction to update profile values
+     * @param  Request $request     
+     * @return $user          
      */
-    public function __construct()
-    {
-
-    }
-
     public function putUser(Request $request){
 
+        // Rules for server side validations
         $rules = [
              'first_name' => ['required', 'max:255'],
              'last_name' => ['max:50'],
@@ -41,6 +45,7 @@ class UserController extends Controller
             throw new DingoException\StoreResourceFailedException('Could not Update user', $validator->errors());
         }
 
+        //Check if token is valid
         $user = JWTAuth::parseToken()->authenticate();
 
         if(!$user){
@@ -78,8 +83,14 @@ class UserController extends Controller
         return $user;
     }
 
+    /**
+     * Function to create other avatar for user
+     * @param  Request $request
+     * @return $user           
+     */
     public function postAvatar(Request $request){
 
+        //Rules for server sides validations
         $rules = [
             'avatar' => ['required']
         ];
@@ -92,6 +103,7 @@ class UserController extends Controller
             throw new DingoException\StoreResourceFailedException('Could not Update user', $validator->errors());
         }
 
+        //Check if token is valid
         $user = JWTAuth::parseToken()->authenticate();
 
         if(!$user){
