@@ -8,6 +8,8 @@
     {!! Html::style('assets/css/bootstrap-paper.min.css') !!}
     {!! Html::style('assets/css/ionicons.min.css') !!}
     {!! Html::style('assets/css/styles.css') !!}
+
+
             <!-- Fonts -->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,6 +19,7 @@
     <![endif]-->
 </head>
 <body>
+
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
@@ -74,9 +77,15 @@
         </div>
     </div>
 </nav>
+
+
+
 <div class="container">
     @yield('content')
 </div>
+<footer>
+
+</footer>
 <!-- Scripts -->
 {!! Html::script('assets/js/jquery-1.11.3.min.js') !!}
 {!! Html::script('assets/js/bootstrap.min.js') !!}
