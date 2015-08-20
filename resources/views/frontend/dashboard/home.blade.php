@@ -2,6 +2,7 @@
 @include('frontend.modals.recover')
 @include('frontend.modals.avatar')
 @include('frontend.forms.register')
+
 @extends('frontend.app')
 @section('content')
     @yield('modalLogin')
