@@ -1,10 +1,9 @@
+<?php
 /**
 * Author: German Mendoza
 * Twitter: german0296 
 * Description: Controller for handle activities in barrios
 */
-<?php
-
 namespace App\Http\Controllers\Frontend\Activities;
 
 use Illuminate\Http\Request;

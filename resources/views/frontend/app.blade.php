@@ -4,13 +4,31 @@
     <meta charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {!! HTML::favicon('assets/images/favicon.png') !!}
     <title>@yield('title', 'BarrioOS')</title>
-    {!! Html::style('assets/css/bootstrap-paper.min.css') !!}
+
+    <!--{!! Html::style('assets/css/bootstrap-paper.min.css') !!}
     {!! Html::style('assets/css/ionicons.min.css') !!}
-    {!! Html::style('assets/css/styles.css') !!}
+    {!! Html::style('assets/css/styles.css') !!} -->
+    @if(isset($dashboard))
+        <!-- DashboarCss -->
+        {!! HTML::style('assets/css/style-home.css') !!}
+        {!! HTML::style('assets/css/font-awesome.min.css') !!}
+    @endif
+    @if(isset($auth))
+        <!-- LoginCss -->
+        {!! HTML::style('assets/css/bootstrap.min.css') !!}
+        {!! HTML::style('assets/css/style.css') !!}
+        {!! HTML::style('assets/css/responsive.css') !!}
+        {!! HTML::style('assets/css/font-awesome.min.css') !!}
+        {!! HTML::style('assets/css/menu.css') !!}
+    @endif
 
 
-            <!-- Fonts -->
+    <!-- Google Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,700,900" rel="stylesheet" type="text/css">
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -19,8 +37,14 @@
     <![endif]-->
 </head>
 <body>
+@if(isset($dashboard))
+    @include('frontend.sections.headerDashboardNoAuth')
+@endif
+@if(isset($auth))
+    @include('frontend.sections.headerAuth')
+@endif
 
-<nav class="navbar navbar-default">
+<!--<nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -76,24 +100,26 @@
 
         </div>
     </div>
-</nav>
+</nav> -->
+
+@yield('content')
+
+@if(isset($dashboard))
+    @include('frontend.sections.footerDashboardNoAuth')
+@endif
+@if(isset($auth))
+    @include('frontend.sections.footerAuth')
+@endif
 
 
-
-<div class="container">
-    @yield('content')
-</div>
-<footer>
-
-</footer>
 <!-- Scripts -->
-{!! Html::script('assets/js/jquery-1.11.3.min.js') !!}
-{!! Html::script('assets/js/bootstrap.min.js') !!}
-{!! Html::script('assets/js/bootstrap.validator.js') !!}
-{!! Html::script('assets/js/jquery.ui.widget.js')  !!}
-{!! Html::script('assets/js/jquery.iframe-transport.js')  !!}
-{!! Html::script('assets/js/jquery.fileupload.js')  !!}
-{!! Html::script('assets/js/main.js') !!}
+{!! HTML::script('assets/js/jquery-1.11.3.min.js') !!}
+{!! HTML::script('assets/js/bootstrap.min.js') !!}
+{!! HTML::script('assets/js/bootstrap.validator.js') !!}
+{!! HTML::script('assets/js/jquery.ui.widget.js')  !!}
+{!! HTML::script('assets/js/jquery.iframe-transport.js')  !!}
+{!! HTML::script('assets/js/jquery.fileupload.js')  !!}
+{!! HTML::script('assets/js/main.js') !!}
 
 
 </body>

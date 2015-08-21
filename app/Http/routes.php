@@ -17,7 +17,28 @@ Route::get('/',[
     'uses' => 'Frontend\Dashboard\HomeController@index'
 ]);
 
+Route::get('registrarse',[
+    'as' => 'registerView',
+    'uses' => 'Frontend\Auth\AuthController@getRegister']
+);
+
+Route::get('iniciar-sesion',[
+    'as' => 'loginView',
+    'uses' => 'Frontend\Auth\AuthController@getLogin']
+);
+
+Route::get('recuperar-contrasena',[
+    'as' => 'recoverView',
+    'uses' => 'Frontend\Auth\PasswordController@getRecover']
+);
+
 Route::group(['middleware' => ['auth']], function() {
+
+    Route::get('subir-avatar',[
+        'as' => 'avatarView',
+        'uses' => 'Frontend\Account\UserController@getAvatar']
+    );
+
     Route::post('account/avatar', [
         'as' => 'avatar',
         'uses' => 'Frontend\Account\UserController@postAvatar'

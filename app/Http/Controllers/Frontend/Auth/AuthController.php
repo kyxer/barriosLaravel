@@ -1,10 +1,9 @@
+<?php
 /**
 * Author: German Mendoza
 * Twitter: german0296 
 * Description: Controller to handle authentication frontend
 */
-<?php
-
 namespace App\Http\Controllers\Frontend\Auth;
 
 use App\User;
@@ -45,8 +44,8 @@ class AuthController extends Controller
             'first_name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6|max:16',
-            'password_confirmation' => 'required|min:6|max:16'
-            //'postal_code' => 'required|max:5|min:5'
+            'password_confirmation' => 'required|min:6|max:16',
+            'postal_code' => 'required|max:5|min:5'
         ]);
     }
 
@@ -61,12 +60,17 @@ class AuthController extends Controller
         return User::create([
             'first_name' => $data['first_name'],
             'email' => $data['email'],
+            'postal_code' => $data['postal_code'],
             'password' => bcrypt($data['password']),
             'avatar_standar' => $data['avatar_standar'],
             'avatar_thumbnail' => $data['avatar_thumbnail'],
             'verified_code' => $data['verified_code'],
             'bidicode' => str_random(15)
         ]);
+    }
+
+    public function getLogin(){
+        return view('frontend.auth.login', ['auth' => 1, 'login' => 1]);
     }
 
     public function postLogin(Request $request){
@@ -113,6 +117,10 @@ class AuthController extends Controller
         Auth::logout();
         Session::forget('send_verify_manual');
         return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
+    }
+
+    public function getRegister(){
+        return view('frontend.auth.register', ['auth' => 1, 'register' => 1]);
     }
 
     /**

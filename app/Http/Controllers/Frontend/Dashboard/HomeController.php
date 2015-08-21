@@ -15,8 +15,11 @@ class HomeController extends Controller
 
     public function index()
     {
+        $data = [];
+        $data['dashboard'] = 1;
         if(Auth::check()){
-            $data = [];
+
+            
             $barrio = Barrio::where('postal_code','=',Auth::user()->postal_code)->first();
             if($barrio){
                 Session::put('barrio', $barrio);
@@ -31,7 +34,7 @@ class HomeController extends Controller
             return view('frontend.dashboard.homeAuth',$data);
         }
         else{
-            return view('frontend.dashboard.home');
+            return view('frontend.dashboard.home', $data);
         }
 
     }

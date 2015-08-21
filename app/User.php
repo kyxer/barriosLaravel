@@ -1,6 +1,4 @@
-
 <?php
-
 namespace App;
 
 use Illuminate\Auth\Authenticatable;

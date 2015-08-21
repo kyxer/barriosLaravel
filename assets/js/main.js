@@ -69,8 +69,7 @@ $(document).ready(function(){
 
     $('#loginForm').validator().on('submit', function (e) {
         if (!e.isDefaultPrevented()) {
-            console.log($('#modalLogin .panel-body .has-feedback').hasClass('has-error'));
-            if(!$('#modalLogin .panel-body .has-feedback').hasClass('has-error')) {
+            if(!$('#loginForm .has-feedback').hasClass('has-error')) {
 
                 doAjax('loginForm',
                     function () {
@@ -82,12 +81,12 @@ $(document).ready(function(){
                     function (response) {
 
                         var html = createErrorMessaje('Email o Contraseña Incorrecto.');
-                        $('#modalLogin .panel-body form').before(html);
+                        $('#loginForm').before(html);
                         $('.jq-alert').fadeIn();
-                        $('#modalLogin .panel-body .has-feedback')
+                        $('#loginForm .has-feedback')
                             .removeClass('has-success')
                             .addClass('has-error');
-                        $('#modalLogin .panel-body :submit').addClass('disabled');
+                        $('#loginForm :submit').addClass('disabled');
 
                     });
             }
@@ -105,9 +104,9 @@ $(document).ready(function(){
                         $('.jq-alert').remove();
                     },
                     function (response) {
-                        //window.location = "/";
-                        $('#modalRegister').modal('hide');
-                        $('#modalAvatar').modal();
+                        window.location = "/subir-avatar";
+                        //$('#modalRegister').modal('hide');
+                        //$('#modalAvatar').modal();
 
                         var img = createImgTag(response.success.response.avatar_standar);
                         $('#avatarStandar').html(img);
@@ -133,29 +132,27 @@ $(document).ready(function(){
     $('#recoverForm').validator().on('submit', function (e) {
         if (!e.isDefaultPrevented()) {
 
-            if(!$('#modalRecover .panel-body .has-feedback').hasClass('has-error')) {
+            if(!$('#recoverForm .has-feedback').hasClass('has-error')) {
 
                 doAjax('recoverForm',
                     function () {
-                        $('.jq-alert, .jq-success').remove();
+                        
                     },
                     function () {
 
-                        //window.location = "/";
                         var html = createSuccessMessaje('Revisa tu email un correo ha sido enviado');
-                        $('#modalRecover .panel-body form').before(html);
+                        $('#recoverForm').before(html);
                         $('.jq-success').fadeIn();
-                        $('#modalRecover .panel-body :submit').addClass('disabled');
+                        $('#recoverForm :submit').addClass('disabled');
                     },
                     function (response) {
 
                         var html = createErrorMessaje(response.responseJSON.error.message);
-                        $('#modalRecover .panel-body form').before(html);
-                        $('.jq-alert').fadeIn();
-                        $('#modalRecover .panel-body .has-feedback')
+                        $('#recoverForm').before(html);
+                        $('#recoverForm .has-feedback')
                             .removeClass('has-success')
                             .addClass('has-error');
-                        $('#modalRecover .panel-body :submit').addClass('disabled');
+                        $('#recoverForm :submit').addClass('disabled');
 
                     });
             }

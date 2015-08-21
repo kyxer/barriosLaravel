@@ -1,10 +1,9 @@
+<?php
 /**
 * Author: German Mendoza
 * Twitter: german0296 
 * Description: Controller for account activity
 */
-<?php
-
 namespace App\Http\Controllers\Frontend\Account;
 
 use App\Helpers\MyImage;
@@ -44,6 +43,10 @@ class UserController extends Controller
             'phone' => 'max:20',
             'address' => 'max:200'
         ]);
+    }
+
+    public function getAvatar(){
+        return view('frontend.account.avatar',['auth'=>1]);
     }
 
     /**

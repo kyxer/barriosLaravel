@@ -20,6 +20,11 @@ class PasswordController extends Controller
     {
 
     }
+
+    public function getRecover(){
+        return view('frontend.auth.recover', ['auth'=>1]);
+    }
+
     /**
      * Send a reset link to the given user.
      *
