@@ -56,10 +56,8 @@ class ImageRepository implements ImageRepositoryInterface {
         $render = new ImageRender();
         try {
             $i = $this->model->findOrFail($this->command->id);
-            dd($i);
             $render->setProperties($this->destination, $i->path, $this->command->width, $this->command->height, $this->command->canvas);
         } catch (ModelNotFoundException $e) {
-            dd($e);
             $render->setProperties(null, null, $this->command->width, $this->command->height, $this->command->canvas);
         }
         return $render->render();

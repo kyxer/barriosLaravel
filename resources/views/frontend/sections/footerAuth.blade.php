@@ -23,7 +23,7 @@
                             <li><a style="color:white" href="/{{ session()->get('barrio')->url_name }}/foros">Foros</a></li>
                         @endif
                         <li>¿Quiénes somos?</li>
-                        <li>Blog</li>
+                        <li><a style="color:white" href="{{ URL::route('blogView') }}">Blog</a></li>
                     </ul>
                 </div>
             </div>

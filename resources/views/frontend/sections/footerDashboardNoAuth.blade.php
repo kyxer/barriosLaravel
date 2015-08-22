@@ -14,7 +14,7 @@
                 <h4>Secciones</h4>
                 <ul class="bullets">
                     <li>¿Quiénes somos?</li>
-                    <li>Blog</li>
+                    <li><a style="color:white" href="{{ URL::route('blogView') }}">Blog</a></li>
                 </ul>
             </div>
         </div>

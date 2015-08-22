@@ -121,7 +121,7 @@ Route::get('{url_barrio}/noticias', [
 ]);
 
 Route::get('blog', [
-    'as' => 'blog',
+    'as' => 'blogView',
     'uses' => 'Frontend\Blog\BlogController@getIndex'
 ]);
 
