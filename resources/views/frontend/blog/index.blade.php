@@ -11,4 +11,11 @@
       </div>
   </div>
 </div>
+<div class="container">
+    <section class="bloghome">
+      @foreach($articles as $article)
+        @include('frontend.blog.article', $article)
+      @endforeach
+    </section>
+</div>
 @stop

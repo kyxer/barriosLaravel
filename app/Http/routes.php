@@ -125,6 +125,11 @@ Route::get('blog', [
     'uses' => 'Frontend\Blog\BlogController@getIndex'
 ]);
 
+Route::get('blog/{slug}', [
+    'as' => 'articleView',
+    'uses' => 'Frontend\Blog\BlogController@getArticle'
+]);
+
 Route::group(['middleware' => config('image-manager.middleware')], function() {
     Route::get('image-manager', [
         'as' => 'ImageManager',
