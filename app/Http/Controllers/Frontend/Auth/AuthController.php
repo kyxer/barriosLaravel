@@ -1,7 +1,7 @@
 <?php
 /**
 * Author: German Mendoza
-* Twitter: german0296 
+* Twitter: german0296
 * Description: Controller to handle authentication frontend
 */
 namespace App\Http\Controllers\Frontend\Auth;
@@ -20,7 +20,7 @@ use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
-    
+
     protected $subjectVerified = "Verifica tu cuenta";
     /**
      * Create a new authentication controller instance.
@@ -41,11 +41,11 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'first_name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6|max:16',
+            'first_name'            => 'required|max:255',
+            'email'                 => 'required|email|max:255|unique:users',
+            'password'              => 'required|confirmed|min:6|max:16',
             'password_confirmation' => 'required|min:6|max:16',
-            'postal_code' => 'required|max:5|min:5'
+            'postal_code'           => 'required|max:5|min:5'
         ]);
     }
 
@@ -58,19 +58,19 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'first_name' => $data['first_name'],
-            'email' => $data['email'],
-            'postal_code' => $data['postal_code'],
-            'password' => bcrypt($data['password']),
-            'avatar_standar' => $data['avatar_standar'],
+            'first_name'       => $data['first_name'],
+            'email'            => $data['email'],
+            'postal_code'      => $data['postal_code'],
+            'password'         => bcrypt($data['password']),
+            'avatar_standar'   => $data['avatar_standar'],
             'avatar_thumbnail' => $data['avatar_thumbnail'],
-            'verified_code' => $data['verified_code'],
-            'bidicode' => str_random(15)
+            'verified_code'    => $data['verified_code'],
+            'bidicode'         => str_random(15)
         ]);
     }
 
     public function getLogin(){
-        return view('frontend.auth.login', ['auth' => 1, 'login' => 1]);
+        return view('frontend.auth.login', ['auth' => 1, 'general' => 1, 'login' => 1]);
     }
 
     public function postLogin(Request $request){
@@ -116,11 +116,12 @@ class AuthController extends Controller
     {
         Auth::logout();
         Session::forget('send_verify_manual');
+        Session::forget('barrio');
         return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
     }
 
     public function getRegister(){
-        return view('frontend.auth.register', ['auth' => 1, 'register' => 1]);
+        return view('frontend.auth.register', ['auth' => 1, 'general' => 1, 'register' => 1]);
     }
 
     /**

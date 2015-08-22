@@ -1,0 +1,52 @@
+{
+    "name": "joselfonseca/laravel-admin-blog",
+    "description": "Blog Module for laravel admin",
+    "keywords": [
+        "laravel-admin",
+        "laravel Administrator",
+        "ACL",
+        "BLOG",
+        "CMS"
+    ],
+    "homepage": "https://github.com/joselfonseca/laravel-admin-blog",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jose Luis Fonseca",
+            "email": "jose@ditecnologia.com",
+            "homepage": "https://josefonseca.me",
+            "role": "Developer"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git://github.com/orchestral/phpseclib.git"
+        }
+    ],
+    "require": {
+        "php" : ">=5.5.0",
+        "laracasts/presenter": "0.2.*",
+        "pqb/filemanager-laravel": "2.*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.0.*",
+        "phpunit/phpunit" : "4.*",
+        "scrutinizer/ocular": "~1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Joselfonseca\\LaravelAdminBlog\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Joselfonseca\\LaravelAdminBlog\\Test\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

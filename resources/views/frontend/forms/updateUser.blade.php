@@ -25,7 +25,6 @@
                     <span class="label label-primary">Verificado</span>
                 @endif
             </legend>
-
             <div class="form-group">
                 <label for="name" class="col-lg-3 control-label">Nombre de Pila</label>
                 <div class="col-lg-9">

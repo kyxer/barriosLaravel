@@ -1,9 +1,9 @@
+<?php
 /**
 * Author: German Mendoza
-* Twitter: german0296 
+* Twitter: german0296
 * Description: Controller for authenticate api, creating token
 */
-<?php
 
 namespace App\Http\Controllers\Api\Auth;
 
@@ -27,7 +27,7 @@ use Illuminate\Mail\Message;
 
 class AuthController extends Controller
 {
-    
+
 
     private $user;
     /**
@@ -44,7 +44,7 @@ class AuthController extends Controller
 
     /**
      * Constructor
-     * @param UserRepository $user object to check if user exist 
+     * @param UserRepository $user object to check if user exist
      */
     public function __construct(UserRepository $user)
     {
@@ -52,8 +52,8 @@ class AuthController extends Controller
     }
     /**
      * Function to login user
-     * @param  Request $request 
-     * @return $user           
+     * @param  Request $request
+     * @return $user
      */
     public function postLogin(Request $request){
 
@@ -98,7 +98,7 @@ class AuthController extends Controller
     /**
      * Function to register user in system
      * @param  Request $request
-     * @return $user           
+     * @return $user
      */
     public function postRegister(Request $request){
 
@@ -141,8 +141,8 @@ class AuthController extends Controller
     }
     /**
      * Function to register or authenticated with facebook
-     * @param  Request $request         
-     * @return $user          
+     * @param  Request $request
+     * @return $user
      */
     public function postProvider(Request $request){
         // Rules for server side validations

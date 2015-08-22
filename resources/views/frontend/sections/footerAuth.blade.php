@@ -18,8 +18,10 @@
                 <div class="secciones">
                     <h4>Secciones</h4>
                     <ul class="bullets">
-                        <li>Actividades</li>
-                        <li>Foro</li>
+                        @if(session()->has('barrio'))
+                            <li><a style="color:white" href="/{{ session()->get('barrio')->url_name }}/actividades">Actividades</a></li>
+                            <li><a style="color:white" href="/{{ session()->get('barrio')->url_name }}/foros">Foros</a></li>
+                        @endif
                         <li>¿Quiénes somos?</li>
                         <li>Blog</li>
                     </ul>

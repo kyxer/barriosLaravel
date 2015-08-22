@@ -1,7 +1,23 @@
-@include('frontend.forms.searchBarrio')
 @extends('frontend.app')
 @section('content')
-    <div class="jumbotron">
+    <div class="container-fluid title">
+        <div class="container">
+            <div class="col-sm-10 col-sm-offset-1">
+                <h1>Bienvenido a BarrioOS</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        @if(isset($register))
+            <br>
+            <div class="alert alert-dismissible alert-warning">
+                <button type="button" class="close" data-dismiss="alert" >×</button>
+                <h4>Gracias por registrarte</h4>
+                <p>Has recibido un email para que confirmes tu Dirección de correo.</p>
+            </div>
+        @endif
+    </div>
+    <!--<div class="jumbotron">
         @if(isset($register))
             <div class="alert alert-dismissible alert-warning">
                 <button type="button" class="close" data-dismiss="alert" >×</button>
@@ -19,7 +35,6 @@
         @else
             <h2>Lo sentimos en estos momentos <span class="text-success">TU</span> barrio no esta en nuestra base de datos</h2>
             <h3>Intenta buscando otro</h3>
-            @yield('searchBarrioForm')
         @endif
-    </div>
+    </div> -->
 @stop

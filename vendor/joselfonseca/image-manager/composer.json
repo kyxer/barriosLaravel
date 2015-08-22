@@ -1,0 +1,33 @@
+{
+    "name": "joselfonseca/image-manager",
+    "description": "Simple image manager for laravel apps",
+    "keywords": ["laravel", "Bootstrap 3", "plupload", "images management"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joselfonseca",
+            "email": "jose@ditecnologia.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "illuminate/support": "5.1.*",
+        "laracasts/commander": "~1.0",
+        "intervention/image": "2.*",
+        "intervention/imagecache": "2.*"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.1.x-dev"
+        }
+    },
+    "autoload": {
+        "classmap": [
+            "src/controllers"
+        ],
+        "psr-4": {
+            "Joselfonseca\\ImageManager\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}

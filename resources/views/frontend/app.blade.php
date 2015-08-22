@@ -15,7 +15,7 @@
         {!! HTML::style('assets/css/style-home.css') !!}
         {!! HTML::style('assets/css/font-awesome.min.css') !!}
     @endif
-    @if(isset($auth))
+    @if(isset($general))
         <!-- LoginCss -->
         {!! HTML::style('assets/css/bootstrap.min.css') !!}
         {!! HTML::style('assets/css/style.css') !!}
@@ -39,6 +39,9 @@
 <body>
 @if(isset($dashboard))
     @include('frontend.sections.headerDashboardNoAuth')
+@endif
+@if(isset($dashboardAuth))
+    @include('frontend.sections.headerDashboardAuth')
 @endif
 @if(isset($auth))
     @include('frontend.sections.headerAuth')
@@ -107,7 +110,7 @@
 @if(isset($dashboard))
     @include('frontend.sections.footerDashboardNoAuth')
 @endif
-@if(isset($auth))
+@if(isset($general))
     @include('frontend.sections.footerAuth')
 @endif
 

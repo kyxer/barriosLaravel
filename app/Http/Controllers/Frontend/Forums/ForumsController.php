@@ -13,12 +13,13 @@ class ForumsController extends Controller
     //
     public function getIndex($url_name){
         $barrio = Barrio::where('url_name','=',$url_name)->first();
-
         if(!$barrio){
             return view('errors.404');
         }
-        return view('frontend.forums.index',['barrio'=>$barrio]);
-
-
+        $data                  = [];
+        $data['barrio']        = $barrio;
+        $data['general']       = 1;
+        $data['dashboardAuth'] = 1;
+        return view('frontend.forums.index', $data);
     }
 }

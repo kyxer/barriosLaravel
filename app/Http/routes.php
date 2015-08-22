@@ -120,6 +120,30 @@ Route::get('{url_barrio}/noticias', [
     'uses' => 'Frontend\News\NewsController@getIndex'
 ]);
 
+Route::get('blog', [
+    'as' => 'blog',
+    'uses' => 'Frontend\Blog\BlogController@getIndex'
+]);
+
+Route::group(['middleware' => config('image-manager.middleware')], function() {
+    Route::get('image-manager', [
+        'as' => 'ImageManager',
+        'uses' => '\\Joselfonseca\\ImageManager\\Controllers\\ImageManagerController@index'
+    ]);
+    Route::post('upload-image', [
+        'as' => 'ImageManagerUpload',
+        'uses' => '\\Joselfonseca\\ImageManager\\Controllers\\ImageManagerController@store'
+    ]);
+    Route::get('image-manager-images', [
+        'as' => 'ImageManagerImages',
+        'uses' => '\\Joselfonseca\\ImageManager\\Controllers\\ImageManagerController@getImages'
+    ]);
+    Route::get('image-manager/delete/{id}', [
+        'as' => 'ImageManagerDelete',
+        'uses' => '\\Joselfonseca\\ImageManager\\Controllers\\ImageManagerController@delete'
+    ]);
+});
+
 Route::get('{url_barrio}', [
     'as' => 'barrios',
     'uses' => 'Frontend\Dashboard\HomeController@getBarrio'

@@ -37,9 +37,9 @@ class ProviderSocialAuth
      */
     public function __construct(UserRepository $users, Socialite $socialite, Guard $auth)
     {
-        $this->users = $users;
+        $this->users     = $users;
         $this->socialite = $socialite;
-        $this->auth = $auth;
+        $this->auth      = $auth;
     }
 
 

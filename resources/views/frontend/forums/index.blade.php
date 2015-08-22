@@ -1,17 +1,15 @@
 @extends('frontend.app')
 @section('content')
-    @if(!Auth::check())
-        @include('frontend.modals.login')
-        @include('frontend.modals.register')
-        @include('frontend.modals.recover')
-        @include('frontend.modals.avatar')
-        @yield('modalLogin')
-        @yield('modalRegister')
-        @yield('modalRecover')
-        @yield('modalAvatar')
-    @endif
-    <div class="jumbotron">
-        <h2><i class="ion-beer"></i>  Bienvenidos a los <span class="text-success" >Foros</span> de <span class="text-primary" >{{ $barrio['name']  }}</span></h2>
-        <p>Estos son los foros para esta semana</p>
+    <div class="container-fluid title">
+        <div class="container">
+            <div class="col-sm-10 col-sm-offset-1">
+                <h1>Bienvenidos a los <span class="text-success" >Foros</span> de <span class="text-primary" >{{ $barrio['name']  }}</span></h1>
+                <ol class="breadcrumb">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/{{ $barrio['url_name'] }}/">{{ $barrio['name'] }}</a></li>
+                  <li class="active">Foros</li>
+                </ol>
+            </div>
+        </div>
     </div>
 @stop

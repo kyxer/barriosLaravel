@@ -22,7 +22,7 @@ class PasswordController extends Controller
     }
 
     public function getRecover(){
-        return view('frontend.auth.recover', ['auth'=>1]);
+        return view('frontend.auth.recover', ['auth' => 1, 'general' => 1]);
     }
 
     /**
@@ -80,7 +80,7 @@ class PasswordController extends Controller
     public function postReset(Request $request)
     {
         $this->validate($request, [
-            'token' => 'required',
+            'token'    => 'required',
             'password' => 'required|confirmed|min:6|max:16'
         ]);
 

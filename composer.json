@@ -12,7 +12,10 @@
         "intervention/image": "2.*",
         "laravel/socialite": "~2.0",
         "joselfonseca/laravel-api-tools" : "1.2.*",
-        "barryvdh/laravel-cors": "0.7.*"
+        "barryvdh/laravel-cors": "0.7.*",
+        "joselfonseca/laravel-admin" : "0.3.*",
+        "joselfonseca/image-manager" : "2.1.*",
+        "joselfonseca/laravel-admin-blog" : "0.1.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -1,7 +1,7 @@
 <?php
 /**
 * Author: German Mendoza
-* Twitter: german0296 
+* Twitter: german0296
 * Description: Controller for account activity
 */
 namespace App\Http\Controllers\Frontend\Account;
@@ -35,28 +35,28 @@ class UserController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'first_name' => 'required|max:255',
-            'last_name' =>'max:50',
-            'email' => 'required|confirmed|email|max:255',
+            'first_name'         => 'required|max:255',
+            'last_name'          =>'max:50',
+            'email'              => 'required|confirmed|email|max:255',
             'email_confirmation' => 'required',
-            'postal_code' => 'required|max:5|min:5',
-            'phone' => 'max:20',
-            'address' => 'max:200'
+            'postal_code'        => 'required|max:5|min:5',
+            'phone'              => 'max:20',
+            'address'            => 'max:200'
         ]);
     }
 
     public function getAvatar(){
-        return view('frontend.account.avatar',['auth'=>1]);
+        return view('frontend.account.avatar',['general' => 1, 'dashboardAuth' => 1]);
     }
 
     /**
      * Function to add avatar to user
      * @param  RequestHttp $request
-     * @return array       
+     * @return array
      */
     public function postAvatar(RequestHttp $request){
 
-        // Rules for server side validations 
+        // Rules for server side validations
         $this->validate($request, [
             'avatar' => 'required|image|mimes:jpeg,png,gif'
         ]);
@@ -77,7 +77,7 @@ class UserController extends Controller
         MyImage::deleteAvatar($user->avatar_standar);
         MyImage::deleteAvatar($user->avatar_thumbnail);
 
-        $user->avatar_standar = $avatars['avatar_standar'];
+        $user->avatar_standar   = $avatars['avatar_standar'];
         $user->avatar_thumbnail = $avatars['avatar_thumbnail'];
 
         $user->save();
@@ -96,16 +96,19 @@ class UserController extends Controller
         $barrio = Barrio::where('postal_code','=',Auth::user()->postal_code)->first();
         if($barrio){
             Session::put('barrio', $barrio);
-        }else{
+        }
+        else{
             Session::forget('barrio');
         }
-
-        return view('frontend.account.profile');
+        $data = [];
+        $data['general'] = 1;
+        $data['dashboardAuth'] = 1;
+        return view('frontend.account.profile', $data);
     }
     /**
      * Function to update profile
-     * @param   $request 
-     * @return redirect              
+     * @param   $request
+     * @return redirect
      */
     public function postProfile(RequestHttp $request){
 
@@ -125,17 +128,17 @@ class UserController extends Controller
                 'email' => 'unique:users'
             ]);
 
-            $user->email =  Request::input('email');
-            $user->is_verify = 0;
+            $user->email         =  Request::input('email');
+            $user->is_verify     = 0;
             $user->verified_code = null;
-            $user->provider_id = null;
+            $user->provider_id   = null;
         }
 
-        $user->first_name = Request::input('first_name');
-        $user->last_name = Request::input('last_name');
+        $user->first_name  = Request::input('first_name');
+        $user->last_name   = Request::input('last_name');
         $user->postal_code = Request::input('postal_code');
-        $user->phone = Request::input('phone');
-        $user->address = Request::input('address');
+        $user->phone       = Request::input('phone');
+        $user->address     = Request::input('address');
 
         $user->save();
 
@@ -146,13 +149,13 @@ class UserController extends Controller
     /**
      * Function to change password
      * @param  RequestHttp $request
-     * @return redirect            
+     * @return redirect
      */
     public function postChangePassword(RequestHttp $request){
-        // Rules for server side validations 
+        // Rules for server side validations
         $this->validate($request, [
-            'password_old' => 'required|min:6|max:16',
-            'password' => 'required|min:6|max:16|confirmed',
+            'password_old'          => 'required|min:6|max:16',
+            'password'              => 'required|min:6|max:16|confirmed',
             'password_confirmation' => 'required|min:6|max:16',
         ]);
         //Authenticating user with new password
@@ -174,14 +177,14 @@ class UserController extends Controller
      * @return  redirect
      */
     public function postVerify(RequestHttp $request){
-        // Rules for server side validations 
+        // Rules for server side validations
         $this->validate($request, [
             'redirect_to' => 'required'
         ]);
 
-        $verified_code = str_random(60);
+        $verified_code       = str_random(60);
 
-        $user = Auth::user();
+        $user                = Auth::user();
 
         $user->verified_code = $verified_code;
         $user->save();
@@ -193,9 +196,7 @@ class UserController extends Controller
         });
 
         Session::put('send_verify_manual', 1);
-
         return redirect(Request::input('redirect_to'))->with(['send_verify_manual_check'=>1]);
-
     }
 
 

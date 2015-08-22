@@ -155,7 +155,10 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Joselfonseca\LaravelApiTools\LaravelApiToolsServiceProvider::class,
-        Barryvdh\Cors\ServiceProvider::class
+        Barryvdh\Cors\ServiceProvider::class,
+        Joselfonseca\LaravelAdmin\Providers\LaravelAdminServiceProvider::class,
+        'Joselfonseca\ImageManager\ImageManagerServiceProvider',
+        Joselfonseca\LaravelAdminBlog\Providers\LaravelAdminBlogServiceProvider::class,
 
     ],
 

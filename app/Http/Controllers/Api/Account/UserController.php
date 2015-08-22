@@ -1,11 +1,9 @@
+<?php
 /**
 * Author: German Mendoza
-* Twitter: german0296 
+* Twitter: german0296
 * Description: Controller for interection with table user.
 */
-
-<?php
-
 namespace App\Http\Controllers\Api\Account;
 
 use Illuminate\Http\Request;
@@ -18,11 +16,11 @@ use App\Helpers\MyImage;
 
 class UserController extends Controller
 {
-    
+
     /**
      * Fuction to update profile values
-     * @param  Request $request     
-     * @return $user          
+     * @param  Request $request
+     * @return $user
      */
     public function putUser(Request $request){
 
@@ -86,7 +84,7 @@ class UserController extends Controller
     /**
      * Function to create other avatar for user
      * @param  Request $request
-     * @return $user           
+     * @return $user
      */
     public function postAvatar(Request $request){
 

@@ -13,8 +13,6 @@
             <div class="secciones">
                 <h4>Secciones</h4>
                 <ul class="bullets">
-                    <li>Actividades</li>
-                    <li>Foro</li>
                     <li>¿Quiénes somos?</li>
                     <li>Blog</li>
                 </ul>
