@@ -66,7 +66,7 @@ $(document).ready(function(){
 
         return img;
     }
-
+    /**/
     $('#loginForm').validator().on('submit', function (e) {
         if (!e.isDefaultPrevented()) {
             if(!$('#loginForm .has-feedback').hasClass('has-error')) {
