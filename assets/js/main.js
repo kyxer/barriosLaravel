@@ -29,7 +29,7 @@ $(document).ready(function(){
 
 
 
-    var doAjax = function(identifier, beforeSend,success,error){
+    var doAjax = function(identifier, beforeSend, success, error){
         $.ajaxSetup({
             headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
         });
@@ -136,7 +136,7 @@ $(document).ready(function(){
 
                 doAjax('recoverForm',
                     function () {
-                        
+
                     },
                     function () {
 

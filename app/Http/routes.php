@@ -55,7 +55,7 @@ Route::group(['middleware' => ['auth']], function() {
     ]);
 
     Route::post('account/user', [
-        'as' => 'updateUser',
+        'as' => 'updateUserProfile',
         'uses' => 'Frontend\Account\UserController@postProfile'
     ]);
 

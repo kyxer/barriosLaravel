@@ -74,7 +74,6 @@ class AuthController extends Controller
     }
 
     public function postLogin(Request $request){
-
         if($request->ajax()) {
             $data = $request->all();
             if (Auth::attempt(['email' => $data['email'], 'password' => $data['password'], 'is_active' => 1],$request->has('remember'))) {

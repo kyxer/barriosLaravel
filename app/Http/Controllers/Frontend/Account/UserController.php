@@ -36,7 +36,7 @@ class UserController extends Controller
     {
         return Validator::make($data, [
             'first_name'         => 'required|max:255',
-            'last_name'          =>'max:50',
+            'last_name'          => 'max:50',
             'email'              => 'required|confirmed|email|max:255',
             'email_confirmation' => 'required',
             'postal_code'        => 'required|max:5|min:5',
@@ -111,11 +111,11 @@ class UserController extends Controller
      * @return redirect
      */
     public function postProfile(RequestHttp $request){
-
         //Calling to validator function
         $validator = $this->validator(Request::all());
 
         if ($validator->fails()) {
+
             return redirect()->back()
                 ->withErrors($validator->messages());
         }

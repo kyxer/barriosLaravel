@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    {!! Form::open(['route'=>'updateUser', 'role' => 'form', 'name' => 'updateUserForm', 'id'=>'updateUserForm', 'data-toggle' => 'validator' ]) !!}
+    {!! Form::open(['route'=>'updateUserProfile', 'role' => 'form', 'name' => 'updateUserForm', 'id'=>'updateUserForm', 'data-toggle' => 'validator' ]) !!}
 
     <fieldset>
             <legend>Edita tu Pérfil
