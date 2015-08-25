@@ -15,9 +15,9 @@ class VerifyCsrfToken extends BaseVerifier
         'api/*'
     ];
 
-    protected function tokensMatch($request){
-
+    /*protected function tokensMatch($request){
+    dd("qwe")
         $token = $request->ajax() ? $request->header('X-CSRF-Token') : $request->input('_token');
         return $request->session()->token() == $token;
-    }
+    }*/
 }

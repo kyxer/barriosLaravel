@@ -31,7 +31,7 @@ $(document).ready(function(){
 
     var doAjax = function(identifier, beforeSend, success, error){
         $.ajaxSetup({
-            headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+            headers: { 'X-CSRF-Token' : $('meta[name=csrf-token]').attr('content') }
         });
         $.ajax({
             url: $('#'+ identifier).attr("action"),
